@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom';
 import * as sessionActions from './store/session';
-
 import Navigation from './components/Navigation/Navigation';
 import Spots from './components/Spots/Spots'
 import SingleSpot from './components/SingleSpot/SingleSpot';
@@ -10,6 +9,7 @@ import SpotCreate from './components/SpotCreate/SpotCreate';
 import ManageSpots from './components/ManageSpots/ManageSpots';
 import SpotUpdate from './components/SpotUpdate/SpotUpdate';
 
+//main function that calls in a restore user function, and making it where it is loaded equals true
 function App() {
   const dispatch = useDispatch();
   const [Loaded, setLoaded] = useState(false);
@@ -19,7 +19,7 @@ function App() {
       setLoaded(true)
     })
   }, [dispatch])
-
+//Routes that are supposed to point to a component
   return (
     <>
     { Loaded &&
