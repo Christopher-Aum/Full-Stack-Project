@@ -29,3 +29,4 @@ console.log(`Res -> `, res)
   export function restoreCSRF() {
     return csrfFetch('/api/csrf/restore');
   }
+//This should be version 3
