@@ -38,13 +38,13 @@ export default function AllSpots() {
                 {/* <button className='PageButton' onClick={() => {
                     page > 1 && setPage(prevPage => prevPage - 1)
                     location.state.reset = false}}>
-                        previous</button> */}
+                        previous</button>
                 <p className='PageNumber'>{page}</p>
                 <button className='PageButton' onClick={() => {
                     allSpots.length == size && setPage(lastPage => lastPage += 1)
                     location.state.reset = false
                     console.log(spots)}}>
-                        next</button>
+                        next</button> */}
             </div>
         </div>
     )}
