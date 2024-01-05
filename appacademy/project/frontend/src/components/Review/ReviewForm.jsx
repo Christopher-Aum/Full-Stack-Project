@@ -8,9 +8,9 @@ export default function ReviewFormModal ({ spotId }) {
     const [activeRating, setActiveRating] = useState(0)
     const [rating, setRating] = useState(0)
     const [review, setReview] = useState('')
-    const { closeModal } = useModal()
+    const { closeModal} = useModal()
     const [errors, setErrors] = useState({})
-
+//creating the rating for a review form
     function createRating() {
         const returnArr = []
         for (let i = 1; i <= 5; i++) {
@@ -22,7 +22,7 @@ export default function ReviewFormModal ({ spotId }) {
                     key={i}
                 ></div>)}
         return returnArr}
-
+//handles the submission of the form
     function handleSubmit (e) {
         e.preventDefault();
         setErrors({})
@@ -33,6 +33,7 @@ export default function ReviewFormModal ({ spotId }) {
                 if (data.message) {
                     setErrors(data)
                 }})}
+//renders the review form and its components
     return (
         <form className='ReviewForm' onSubmit={handleSubmit}>
             <h2 className='FormHeader'>How was your stay?</h2>
