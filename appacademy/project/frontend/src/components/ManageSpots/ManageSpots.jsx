@@ -12,12 +12,12 @@ export default function ManageSpots() {
     const sessionUser = useSelector((state) => state.session.user);
     const spots = useSelector(state => state.spots)
     const allSpots = spots.userSpots && Object.values(spots.userSpots)
-
+//re-renders and calls for the function to get the spots of the current user
     useEffect(() => {
         if (!sessionUser) navigate('/');
         dispatch(thunkGetCurrentSpots())
     }, [dispatch, sessionUser, navigate])
-
+//returns the components of the managespots component
     return (
         <>
             { sessionUser && <div className="Wrapper">
