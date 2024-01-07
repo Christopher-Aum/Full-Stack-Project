@@ -1,35 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import App from './App';
-// import './index.css';
+import App from './App';
+import './index.css';
+import configureStore from './store/store';
 import { Provider } from 'react-redux';
-import configureStore from './store';
-import { restoreCSRF, csrfFetch } from './store/csrf';
-// import * as sessionActions from './store/session';
-// import { Modal, ModalProvider } from './context/Modal';
-import { BrowserRouter } from 'react-router-dom';
+
 const store = configureStore();
 
-// if (import.meta.env.MODE !== 'production') {
-//   restoreCSRF();
+if(process.env.NODE_ENV !== 'production'){
+  window.store = store;
+}
 
-//   //runs the restoreCSRF function, and adds these values into keys within the window
-
-//   window.csrfFetch = csrfFetch;
-//   window.store = store;
-//   window.sessionActions = sessionActions;
-// }
-
-//renders the components of the react apps in their specific orders
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ModalProvider>
-        <Provider store={store}>
-            <App />
-          <Modal />
-        </Provider>
-      </ModalProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+    <App />
+    </Provider>
   </React.StrictMode>
 );
