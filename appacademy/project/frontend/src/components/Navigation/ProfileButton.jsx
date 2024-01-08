@@ -1,6 +1,9 @@
 import {useState, useEffect, useRef} from 'react'
 import { useDispatch } from 'react-redux'
 import * as sessionActions from '../../store/session'
+import OpenModalButton from '../OpenModalButton/OpenModalButton'
+import LoginFormModal from '../LoginFormModal/LoginFormModal'
+import SignupFormModal from '../SignupFormModal/SignupFormModal'
 
 function ProfileButton({user}){
     const dispatch = useDispatch()
@@ -39,13 +42,32 @@ function ProfileButton({user}){
         <button onClick={toggleMenu}>
         <i className='fas fa-user-circle'/>
         </button>
-        <ul className={ulClassName}>
-            <li>{user.username}</li>
-            <li>{user.firstName} {user.lastName}</li>
-            <li>{user.email}</li>
-            <li>
-                <button onClick={logout}>Log Out</button>
-            </li>
+        <ul className={ulClassName} ref={ulRef}>
+            {user ? (
+                <>
+                <li>{user.username}</li>
+                <li>{user.firstName} {user.lastName}</li>
+                <li>{user.email}</li>
+                <li>
+                    <button onClick={logout}>Log Out</button>
+                </li>
+                </>
+            ): (
+                <>
+                <li>
+                    <OpenModalButton
+                    buttonText="Log In"
+                    modalComponent={<LoginFormModal />}
+                    />
+                </li>
+                <li>
+                    <OpenModalButton
+                    buttonText="Sign Up"
+                    modalComponent={<SignupFormModal/>}
+                    />
+                </li>
+                </>
+            )}
         </ul>
         </>
     )
