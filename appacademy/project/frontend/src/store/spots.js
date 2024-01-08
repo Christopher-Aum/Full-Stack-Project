@@ -7,6 +7,7 @@ const UPDATE_SPOT = 'spots/UPDATE_SPOT'
 const DELETE_SPOT = 'spots/DELETE_SPOT'
 const ADD_IMAGE = 'spots/ADD_IMAGE'
 
+//grabs the token and data for spots
 export const getSpots = () => async (dispatch) =>{
     const response = await csrfFetch('/api/spots')
     const data = await response.json()
@@ -17,7 +18,7 @@ export const getSpots = () => async (dispatch) =>{
     })
     return response
 }
-
+//reducer
 export const spotReducer = (state = {}, action)=> {
     switch(action.type){
         case GET_SPOTS:

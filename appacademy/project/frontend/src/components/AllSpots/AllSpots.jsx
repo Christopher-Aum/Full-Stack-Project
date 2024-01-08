@@ -7,10 +7,11 @@ import Spot from "./Spot"
 export default function AllSpots(){
     const dispatch = useDispatch()
     const spots = useSelector(state => state.spots)
-   
+
     useEffect(()=> {
         dispatch(getSpots())
     }, [dispatch])
+    //returns the allspots components and its components
     return (
         <div className="wrap">
             <div className="spots-container">
