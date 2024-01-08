@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
 import Navigation from './components/Navigation/Navigation';
 import * as sessionActions from './store/session'
+import AllSpots from './components/AllSpots/AllSpots';
 
 //function that checks if something is loaded, and dispatches the restoreUser function upon every rerender
 function Layout(){
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
     children: [
 
       {path: '/',
-      element: <h1>Welcome!</h1>
+      element: <AllSpots/>
     }
     ]
   }

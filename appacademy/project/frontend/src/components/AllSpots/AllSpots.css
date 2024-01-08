@@ -1,0 +1,23 @@
+div,
+span{
+    font-size: 16px;
+    color:black;
+
+}
+.spots-container{
+    display: grid;
+}
+
+.spots-list img {
+    width: 350px;
+    height: 280px;
+    border-radius: 40px;
+}
+
+.spots-list{
+    cursor:pointer;
+    width:90%;
+    align-items: center;
+    margin: auto;
+    padding: 15px;
+}

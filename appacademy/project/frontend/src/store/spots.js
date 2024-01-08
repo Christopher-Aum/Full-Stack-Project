@@ -17,3 +17,14 @@ export const getSpots = () => async (dispatch) =>{
     })
     return response
 }
+
+export const spotReducer = (state = {}, action)=> {
+    switch(action.type){
+        case GET_SPOTS:
+            return action.allSpots.reduce((allSpots, spot)=> {
+                allSpots[spot.id] = spot;
+                return allSpots
+            }, {})
+            default: return state
+    }
+}
