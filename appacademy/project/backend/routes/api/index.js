@@ -29,10 +29,10 @@ const { restoreUser } = require("../../utils/auth.js");
 
   router.use('/spot-images', spotImgRouter)
 
-  // router.post('/test', function(req, res) {
-  //   console.log(`I'm being hit!`)
-  //   res.json({ requestBody: req.body });
-  // });
+  router.post('/test', function(req, res) {
+    console.log(`I'm being hit!`)
+    res.json({ requestBody: req.body });
+  });
 
 
 //   const { setTokenCookie } = require('../../utils/auth.js');
