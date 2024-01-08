@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import './LoginFormPage.css'
 
+
+
 function LoginFormPage() {
     const dispatch = useDispatch()
     const sessionUser = useSelector((state)=> state.session.user)
@@ -12,7 +14,7 @@ function LoginFormPage() {
     const [errors, setErrors] = useState({})
 
     if (sessionUser) return <Navigate to="/" replace={true} />
-
+//handles the submission of the loginform
     const handleSubmit = (e) => {
         e.preventDefault()
         setErrors({})
@@ -23,6 +25,7 @@ function LoginFormPage() {
             }
         )
     }
+    //returns the loginform component and its components
     return (
         <>
         <h1>Log In</h1>

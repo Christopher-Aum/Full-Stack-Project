@@ -1,8 +1,9 @@
+import {useState, useEffect} from 'react'
+import { useDispatch } from "react-redux";
 import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage/LoginFormPage";
 import SignUpFormPage from "./components/SignupFormPage/SignUpFormPage";
-import {useState, useEffect} from 'react'
-import { useDispatch } from "react-redux";
+import Navigation from './components/Navigation/Navigation';
 import * as sessionActions from './store/session'
 
 //function that checks if something is loaded, and dispatches the restoreUser function upon every rerender
@@ -18,6 +19,7 @@ function Layout(){
 
   return (
     <>
+    <Navigation isLoaded={isLoaded}/>
     {isLoaded && <Outlet/>}
     </>
   )

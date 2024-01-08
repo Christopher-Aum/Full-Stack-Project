@@ -16,6 +16,7 @@ function SignUpFormPage(){
     const [errors, setErrors] = useState({})
 
     if(sessionUser) return <Navigate to="/" replace={true}/>
+    //handles the submission of the signupform
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password === confirmPassword) {
@@ -39,6 +40,7 @@ function SignUpFormPage(){
           confirmPassword: "Confirm Password field must be the same as the Password field"
         });
       };
+      //returns the signupform component and its components
       return (
         <>
         <h1>Sign Up</h1>
