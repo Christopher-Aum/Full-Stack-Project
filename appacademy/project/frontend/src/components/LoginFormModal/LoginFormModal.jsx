@@ -6,22 +6,23 @@ import './LoginFormPage.css'
 
 
 
-function LoginFormPage() {
+function LoginFormModal() {
     const dispatch = useDispatch()
-    const sessionUser = useSelector((state)=> state.session.user)
     const [credential, setCredential] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState({})
+    const {closeModal} = useModal()
 
-    if (sessionUser) return <Navigate to="/" replace={true} />
 //handles the submission of the loginform
     const handleSubmit = (e) => {
         e.preventDefault()
         setErrors({})
-        return dispatch(sessionActions.login({credential, password})).catch(
+        return dispatch(sessionActions.login({credential, password}))
+        .then(closeModal)
+        .catch(
             async (res)=> {
                 const data = await res.json()
-                if(data?.errors) setErrors(data.errors)
+                if( data && data.errors) setErrors(data.errors)
             }
         )
     }
@@ -48,7 +49,7 @@ function LoginFormPage() {
                 required
                 />
             </label>
-            {errors.credential && <p>{errors.crednetial}</p>}
+            {errors.credential && <p>{errors.credential}</p>}
             <button type='submit'>Log In</button>
         </form>
         </>
