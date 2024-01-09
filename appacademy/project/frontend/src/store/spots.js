@@ -100,6 +100,17 @@ export const spotReducer = (state = {}, action)=> {
                 allSpots[spot.id] = spot;
                 return allSpots
             }, {})
+        case CREATE_SPOT:
+            return {...state, [action.spot.id]: action.spot}
+        case ADD_IMAGE:
+            return {...state, [action.spotId]: {...state[action.spotId], SpotImages: [...state[action.spotId].SpotImages, action.img]}}
+        case GET_USER_SPOTS:
+            return action.spots.reduce((spots, spot)=> { spots[spot.id]= spot; return spots}, {})
+        case UPDATE_SPOT:
+            return {...state, [action.spot.id]: action.spot}
+        case DELETE_SPOT: {const newState = {...state}
+        delete newState[action.spotId];
+        return newState}
             default: return state
     }
 }
