@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {getDetails} from '../../store/spotinfo'
+import {spotInfo} from '../../store/spotinfo'
 import {getReview, postReview} from '../../store/reviews'
 import { useModal } from "../../context/Modal";
 import Review from './Review'
@@ -20,7 +20,7 @@ const isOwner = currentUser && currentUser.id == spotInfo?.Owner?.id
 const [hasPosted, setHasPosted] = useState(false)
 
 useEffect(()=> {
-    dispatch(getDetails(spotId))
+    dispatch(spotInfo(spotId))
 
     dispatch(getReview(spotId)).then(()=> {
         if(reviews && currentUser){
@@ -49,7 +49,7 @@ const avgRate = avgRating()
 const numRevs = numReviews()
 
 const newReview = async (review) => {
-    await dispatch(postReview(review))
+    await dispatch(postReview(review));
     setHasPosted(true)
     closeModal()
     dispatch(getReview(spotId))
@@ -78,23 +78,25 @@ return (
                 <img src={spotInfo?.SpotImages?.[0]?.url} alt={spotInfo.description}/>
             </div>
             <div className="other-images">
-
-                <div>
-                    <img />
+                {spotInfo?.SpotImages?.slice(1).map((image)=> {
+                <div key={image.id} className="other-image">
+                    <img src={image?.url} alt={spotInfo.description}/>
                 </div>
+
+                })}
 
             </div>
         </div>
         <div className="spot-block-2">
-            <div>
-                <h2> </h2>
-                <div className="description"> </div>
+            <div className="panel">
+                <h2>Hosted by {spotInfo.Owner.firstName} {spotInfo.Owner.lastName}</h2>
+                <div className="description">{spotInfo.description}</div>
             </div>
             <div className="booking-wrap">
                 <div className="booking">
-                    <div><strong></strong></div>
+                    <div><strong>${spotInfo.price}</strong> / night</div>
                     <div className="rating">
-                        <span></span>
+                        <span className="fa fa-star checked"></span>
 
                         <div> </div>
                         <span> </span>

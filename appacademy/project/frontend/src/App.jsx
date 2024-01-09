@@ -5,6 +5,7 @@ import Navigation from './components/Navigation/Navigation';
 import * as sessionActions from './store/session'
 import AllSpots from './components/AllSpots/AllSpots';
 
+
 //function that checks if something is loaded, and dispatches the restoreUser function upon every rerender
 function Layout(){
   const dispatch = useDispatch();

@@ -18,7 +18,7 @@ export const getSpots = () => async (dispatch) =>{
     })
     return response
 }
-
+//creates a spot with provided info
 export const createSpot = (spot) => async (dispatch) => {
     const response = await csrfFetch('/api/spots', {
         method: 'POST',
