@@ -30,7 +30,7 @@ useEffect(()=> {
     })
 }, [dispatch, spotId])
 
-const avgRating = () => {
+const avgRatingFunc = () => {
     if(reviews && reviews.length > 0){
         const total = reviews.reduce((acc, review)=> acc + review.stars, 0)
         return total / reviews.length
@@ -45,7 +45,7 @@ const numReviews = () => {
     return 0
 }
 
-const avgRate = avgRating()
+const avgRating = avgRatingFunc()
 const numRevs = numReviews()
 
 const newReview = async (review) => {
