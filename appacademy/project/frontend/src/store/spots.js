@@ -58,6 +58,39 @@ export const uploadImg = (spotId, img) => async (dispatch) => {
 
 }
 
+export const currentUserSpots = () => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/current`)
+    const res = await response.json()
+    dispatch({
+        type: GET_USER_SPOTS,
+        spots: res.Spots
+    })
+    return res.Spots
+}
+
+export const updateSpot = (spotId, spotInfo) => async (dispatch)=> {
+    const response = await csrfFetch(`/api/spots/${spotId}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(spotInfo)
+    })
+    const updated = await response.json()
+    dispatch({
+        type: UPDATE_SPOT,
+        spot: updated
+    })
+    return updated
+}
+
+export const deleteSpot = (spotId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${spotId}`,
+    {method: 'DELETE'})
+    dispatch({
+        type: DELETE_SPOT,
+        spotId
+    })
+    return response
+}
 
 //reducer
 export const spotReducer = (state = {}, action)=> {
