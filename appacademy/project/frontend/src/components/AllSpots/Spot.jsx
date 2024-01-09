@@ -5,7 +5,7 @@ import './AllSpots.css'
 export default function Spot({spot}){
     const [nav, setNav] = useState(null)
     const navigate = useNavigate()
-    
+
     useEffect(()=> {
         if(nav) navigate(nav)
     },[nav, navigate])
@@ -32,8 +32,8 @@ export default function Spot({spot}){
                     {newRating()}
                 </span>
             </div>
-            <div className="price">
-                <span className="$">$</span> <span className="price">{spot.price}</span> per night
+            <div className="price-con">
+                <span className="money">$</span> <span className="price">{spot.price}</span> per night
             </div>
             </div>
         </div>

@@ -21,3 +21,24 @@ span{
     margin: auto;
     padding: 15px;
 }
+.city {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+.price-con, .money{
+text-align: left;
+font-weight: bold;
+}
+.rating {
+    display: flex;
+    align-items: center;
+}
+.price{
+    font-weight: bold;
+}
+.spot-description{
+    padding: 10px 20px;
+    width: 90%;
+}
