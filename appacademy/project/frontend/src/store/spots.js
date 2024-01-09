@@ -18,6 +18,47 @@ export const getSpots = () => async (dispatch) =>{
     })
     return response
 }
+
+export const createSpot = (spot) => async (dispatch) => {
+    const response = await csrfFetch('/api/spots', {
+        method: 'POST',
+        headers: {
+            'Content-Type': "application/json"
+        },
+        body: JSON.stringify(spot)
+    })
+const newSpot = await response.json()
+
+dispatch({
+    type: CREATE_SPOT,
+    spot: newSpot
+})
+    dispatch(getSpots())
+
+    return newSpot
+}
+
+export const uploadImg = (spotId, img) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${spotId}/images`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(img)
+    })
+    if (response.ok){
+        const image = await response.json()
+        dispatch({
+            type: ADD_IMAGE,
+            spotId,
+            image
+        })
+        return image
+    }
+
+}
+
+
 //reducer
 export const spotReducer = (state = {}, action)=> {
     switch(action.type){
