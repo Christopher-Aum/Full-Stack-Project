@@ -8,13 +8,13 @@ export default function Reviews({reviews}){
     const dispatch = useDispatch()
     const {setModalContent, closeModal} = useModal()
     const currentUser = useSelector((state)=> state.session.user)
-
+//function that deletes the review
     const confirmDeletion = async (reviewId, spotId)=> {
         await dispatch(deleteReview(reviewId))
         closeModal()
         await dispatch(getReviews(spotId))
     }
-
+//function that calls in the delete form for a review
     const openDeleteForm = (review) => {
         setModalContent(
             <DeleteReview
@@ -25,7 +25,7 @@ export default function Reviews({reviews}){
     }
 
     const sorted = reviews.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt))
-
+//returns the review component and its components
     return (
         <div className="review-con">
             {sorted && sorted.length > 0 ? (
