@@ -37,15 +37,15 @@ export default function Reviews({reviews}){
                     year: 'numeric'
                 }
                 return (
-                    <div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                    <div key={review.id} className="review-id">
+                        <div className="review-details">
+                            <div className="rev-name">{review.User?.firstName ? review.User.firstName : sessionUser.firstName}</div>
+                            <div className="rev-date">{date.toLocaleDateString(undefined, options)}</div>
+                            <div className="rev-content">{review.review}</div>
                         </div>
-                        { (
-                        <div>
-                            <button></button>
+                        { currentUser && review.User?.id === currentUser.id && (
+                        <div className="delete-review">
+                            <button onClick={()=> openDeleteForm(review)}>Delete</button>
                         </div>
                         )}
                     </div>
