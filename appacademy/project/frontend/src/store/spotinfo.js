@@ -2,12 +2,12 @@ import { csrfFetch } from "./csrf";
 
 const SPOTINFO = 'spotinfo/SPOTINFO'
 //info for a single spot based on id
-export const spotInfo = (spotId) => async (dispatch)=> {
+export const getSpotInfo = (spotId) => async (dispatch)=> {
     const response = await csrfFetch(`/api/spots/${spotId}`)
-    const spotinformation = await response.json()
+    const spotinfo = await response.json()
     dispatch({
         type: SPOTINFO,
-        spotinformation
+        spotinfo
     })
     return response
 }
@@ -15,7 +15,7 @@ export const spotInfo = (spotId) => async (dispatch)=> {
 export const spotinfoReducer = (state = null, action)=> {
     switch(action.type){
         case SPOTINFO:
-            return action.spotinformation
+            return action.spotinfo
         default: return state
     }
 }

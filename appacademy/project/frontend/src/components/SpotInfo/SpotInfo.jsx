@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {spotInfo} from '../../store/spotinfo'
+import {getSpotInfo} from '../../store/spotinfo'
 import {getReview, postReview} from '../../store/reviews'
 import { useModal } from "../../context/Modal";
 import Review from './Review'
@@ -20,7 +20,7 @@ const isOwner = currentUser && currentUser.id == spotInfo?.Owner?.id
 const [hasPosted, setHasPosted] = useState(false)
 
 useEffect(()=> {
-    dispatch(spotInfo(spotId))
+    dispatch(getSpotInfo(spotId))
 
     dispatch(getReview(spotId)).then(()=> {
         if(reviews && currentUser){
@@ -119,7 +119,7 @@ return (
             </div>
                     {isLogged && !isOwner && !hasPosted && (
             <div className="review-post">
-                <button className="post-review">Post Your Review!</button>
+                <button className="post-review" onClick={openReview}>Post Your Review!</button>
             </div>
                     )}
             <Review reviews={reviews}/>
