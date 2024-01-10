@@ -97,9 +97,11 @@ return (
                     <div><strong>${spotInfo.price}</strong> / night</div>
                     <div className="rating">
                         <span className="fa fa-star checked"></span>
-
-                        <div> </div>
-                        <span> </span>
+                        {numRevs > 0? (
+                            <div>{avgRating.toFixed(1)} . {numReviews} {numReviews === 1 ? "review" : "reviews"}</div>
+                        ): (
+                            <span>New</span>
+                        )}
                     </div>
                 </div>
                 <button onClick={()=> alert('Upcoming Feature')}>Reserve</button>
@@ -108,13 +110,18 @@ return (
         <div className="line"></div>
         <div className="review">
             <div className="review-title">
-                <span></span><span></span>
+                <span className="fa fa-star checked"></span><span></span>
+                {numRevs > 0 ? (
+                    <font size='5'><strong>{avgRating.toFixed(1)}</strong> . <strong>{numRevs} {numRevs === 1 ? 'review': 'reviews'}</strong></font>
+                ): (
+                    <font size='5'><strong>New</strong></font>
+                )}
             </div>
-
+                    {isLogged && !isOwner && !hasPosted && (
             <div className="review-post">
                 <button className="post-review">Post Your Review!</button>
             </div>
-
+                    )}
             <Review reviews={reviews}/>
         </div>
     </div>
