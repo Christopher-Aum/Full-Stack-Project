@@ -5,7 +5,6 @@ import './AllSpots.css'
 export default function Spot({spot}){
     const [nav, setNav] = useState(null)
     const navigate = useNavigate()
-console.log('Spot => ',spot)
     useEffect(()=> {
         if(nav) navigate(nav)
     },[nav, navigate])

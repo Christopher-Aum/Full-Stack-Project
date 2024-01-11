@@ -7,7 +7,6 @@ import Spot from "./Spot"
 export default function AllSpots(){
     const dispatch = useDispatch()
     const spots = useSelector(state => state.spots)
-    console.log('spots, ', spots)
     useEffect(()=> {
         dispatch(getSpots())
     }, [dispatch])
@@ -17,7 +16,7 @@ export default function AllSpots(){
             <div className="spots-container">
                 {
                 Object.values(spots).map(spot => (
-                    
+
                     <Spot key={spot.id} spot={spot}/>
                 ))
                 }

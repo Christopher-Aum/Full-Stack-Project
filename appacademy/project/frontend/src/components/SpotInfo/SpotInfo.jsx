@@ -13,7 +13,7 @@ const {setModalContent, closeModal} = useModal()
 const {spotId} = useParams()
 const dispatch = useDispatch()
 const spotInfo = useSelector(state => state.spotinfo)
-const reviews = useSelector(state => state.review[spotId])
+const reviews = useSelector(state => state.reviews[spotId])
 const currentUser = useSelector(state => state.session.user)
 const isLogged = Boolean(currentUser)
 const isOwner = currentUser && currentUser.id == spotInfo?.Owner?.id
@@ -52,7 +52,7 @@ const newReview = async (review) => {
     await dispatch(postReview(review));
     setHasPosted(true)
     closeModal()
-    dispatch(getReview(spotId))
+    dispatch(getReviews(spotId))
 }
 
 const openReview = () => {

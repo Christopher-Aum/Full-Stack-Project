@@ -24,7 +24,6 @@ export default function ReviewForm ({ spotId, submit}){
         try {
             const reviewContent = {review: comment, stars: rating, spotId: parseInt(spotId, 10)}
             const res = await dispatch(postReview(reviewContent))
-
             if(!res.error){
                 submit(res)
                 closeModal
@@ -35,8 +34,7 @@ export default function ReviewForm ({ spotId, submit}){
                 throw new Error({message: errorRes.message || 'User already posted review for this spot'})
             }}catch(error){
                 setErrors({message: 'User already posted review for this spot'})
-            }
-    }
+            }}
 
     return (
         <div className="review-form-con">
@@ -60,5 +58,4 @@ export default function ReviewForm ({ spotId, submit}){
                 </button>
             </form>
         </div>
-    )
-}
+    )}

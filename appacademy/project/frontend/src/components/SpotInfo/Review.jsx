@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteReview, getReviews } from "../../store/reviews";
-// import {DeleteReview} from '../DeleteReview/DeleteReview'
+import DeleteReview from '../DeleteReview/DeleteReview'
 import { useModal } from "../../context/Modal";
 import './Review.css'
 
