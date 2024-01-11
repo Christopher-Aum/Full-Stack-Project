@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { createSpot, updateSpot, currentUserSpots, uploadImg  } from "../../store/spots";
 import './CreateSpot.css'
 
-export default function CreateSpotForm({ mode }){
+export default function CreateSpot({ mode }){
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [errors, setErrors] = useState({})
@@ -42,7 +42,7 @@ export default function CreateSpotForm({ mode }){
                             previewImage:updateSpot.previewImage || '',
                             urls:updateSpot.urls || []})}})()}
                         }, [dispatch, isUpdate, spotId])
-
+        //handles any change with inputs
         const change = (e) => {
             let{name, value} = e.target;
             if(name==='previewImage' || name.startsWith('url')){
@@ -52,7 +52,7 @@ export default function CreateSpotForm({ mode }){
                     value = parseFloat(value) || ''}
                 setData({...data, [name]: value})}
             setErrors({...errors, [name]: ''})}
-
+                    //front-end validation of inputs
         const validate = () => {
             const newErrors = {}
             const imageTypes = ['png', 'jpg', 'jpeg']
@@ -75,7 +75,7 @@ export default function CreateSpotForm({ mode }){
                     newErrors[`url${idx}`] = 'Image needs to be in .png, .jpg, or .jpeg format'}})
             setErrors(newErrors)
             return Object.keys(newErrors).length === 0;}
-
+                    //handles submission of the create spot form
         const submit = async (e) => {
             e.preventDefault()
             const valid = validate()
@@ -102,6 +102,7 @@ export default function CreateSpotForm({ mode }){
             const errorMsg = ({error}) => (
                 <div>{errors[error]}</div>
             )
+            //returns the createspot form, and its components
             return (
                 <div>
                     <form onSubmit={submit} className={isUpdate ? 'update-form' : 'new-form'}>

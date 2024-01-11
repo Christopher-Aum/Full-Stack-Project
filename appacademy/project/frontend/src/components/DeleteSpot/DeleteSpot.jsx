@@ -1,6 +1,6 @@
 import './DeleteSpot.css'
-export default function DeleteSpot({onConfirm, onCancel})
-{
+export default function DeleteSpot({onConfirm, onCancel}){
+//returns the delete spot component
     return(
         <div className='delete-spot'>
             <div className='delete-spot-title'>Confirm Deletion</div>

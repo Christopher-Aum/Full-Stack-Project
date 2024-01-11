@@ -29,7 +29,7 @@ useEffect(()=> {
         }
     })
 }, [dispatch, spotId])
-
+//checks the average rating
 const avgRatingFunc = () => {
     if(reviews && reviews.length > 0){
         const total = reviews.reduce((acc, review)=> acc + review.stars, 0)
@@ -37,7 +37,7 @@ const avgRatingFunc = () => {
     }
     return 0
 }
-
+//checks how many reviews are there
 const numReviews = () => {
     if(reviews){
         return reviews.length;
@@ -47,14 +47,14 @@ const numReviews = () => {
 
 const avgRating = avgRatingFunc()
 const numRevs = numReviews()
-
+//checks if it is a new review
 const newReview = async (review) => {
     await dispatch(postReview(review));
     setHasPosted(true)
     closeModal()
     dispatch(getReviews(spotId))
 }
-
+//handles the opening of a review
 const openReview = () => {
     setModalContent(
         <ReviewForm
@@ -65,7 +65,7 @@ const openReview = () => {
 }
 
 if(!spotInfo) return null
-
+//returns the spotinfo component
 return (
     <>
     <div className="spot-wrap">

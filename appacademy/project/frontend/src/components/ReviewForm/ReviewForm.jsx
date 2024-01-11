@@ -17,7 +17,7 @@ export default function ReviewForm ({ spotId, submit}){
         setComment('')
         setErrors({})
     }, [spotId])
-
+//handles the submission of the form
     const submitForm = async (e) => {
         e.preventDefault()
         setErrors({})
@@ -35,7 +35,7 @@ export default function ReviewForm ({ spotId, submit}){
             }}catch(error){
                 setErrors({message: 'User already posted review for this spot'})
             }}
-
+//returns the review form component
     return (
         <div className="review-form-con">
             <div className="title">How was your stay?</div>
