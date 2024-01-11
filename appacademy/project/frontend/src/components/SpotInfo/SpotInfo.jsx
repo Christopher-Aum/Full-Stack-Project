@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {getSpotInfo} from '../../store/spotinfo'
-import {getReview, postReview} from '../../store/reviews'
+import {getReviews, postReview} from '../../store/reviews'
 import { useModal } from "../../context/Modal";
 import Review from './Review'
 import ReviewForm from '../ReviewForm/ReviewForm'
@@ -22,7 +22,7 @@ const [hasPosted, setHasPosted] = useState(false)
 useEffect(()=> {
     dispatch(getSpotInfo(spotId))
 
-    dispatch(getReview(spotId)).then(()=> {
+    dispatch(getReviews(spotId)).then(()=> {
         if(reviews && currentUser){
             const review = reviews.find(review => review.userId === currentUser.id)
             setHasPosted(Boolean(review))

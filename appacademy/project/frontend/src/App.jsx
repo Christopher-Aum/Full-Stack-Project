@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
 import Navigation from './components/Navigation/Navigation';
 import * as sessionActions from './store/session'
 import AllSpots from './components/AllSpots/AllSpots';
+import Spot from './components/AllSpots/Spot';
+import SpotInfo from './components/SpotInfo/SpotInfo';
 
 
 //function that checks if something is loaded, and dispatches the restoreUser function upon every rerender
@@ -32,6 +34,9 @@ const router = createBrowserRouter([
 
       {path: '/',
       element: <AllSpots/>
+    }, {
+      path:'/spots/:spotId',
+      // element: </>
     }
     ]
   }

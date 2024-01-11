@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteReview, getReviews } from "../../store/reviews";
-import {DeleteReview} from '../DeleteReview/DeleteReview'
+// import {DeleteReview} from '../DeleteReview/DeleteReview'
 import { useModal } from "../../context/Modal";
 import './Review.css'
 
@@ -39,7 +39,7 @@ export default function Reviews({reviews}){
                 return (
                     <div key={review.id} className="review-id">
                         <div className="review-details">
-                            <div className="rev-name">{review.User?.firstName ? review.User.firstName : sessionUser.firstName}</div>
+                            <div className="rev-name">{review.User?.firstName ? review.User.firstName : currentUser.firstName}</div>
                             <div className="rev-date">{date.toLocaleDateString(undefined, options)}</div>
                             <div className="rev-content">{review.review}</div>
                         </div>

@@ -11,10 +11,10 @@ const ADD_IMAGE = 'spots/ADD_IMAGE'
 export const getSpots = () => async (dispatch) =>{
     const response = await csrfFetch('/api/spots')
     const data = await response.json()
-    const allSpots = data.Spots
+    const spots = data.Spots
     dispatch({
         type: GET_SPOTS,
-        allSpots
+        spots
     })
     return response
 }
@@ -96,9 +96,9 @@ export const deleteSpot = (spotId) => async (dispatch) => {
 export const spotReducer = (state = {}, action)=> {
     switch(action.type){
         case GET_SPOTS:
-            return action.allSpots.reduce((allSpots, spot)=> {
-                allSpots[spot.id] = spot;
-                return allSpots
+            return action.spots.reduce((spots, spot)=> {
+                spots[spot.id] = spot;
+                return spots
             }, {})
         case CREATE_SPOT:
             return {...state, [action.spot.id]: action.spot}
@@ -114,3 +114,5 @@ export const spotReducer = (state = {}, action)=> {
             default: return state
     }
 }
+
+export default spotReducer
