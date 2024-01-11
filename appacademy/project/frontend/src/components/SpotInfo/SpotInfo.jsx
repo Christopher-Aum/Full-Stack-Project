@@ -82,9 +82,7 @@ return (
                 <div key={image.id} className="other-image">
                     <img src={image?.url} alt={spotInfo.description}/>
                 </div>
-
                 })}
-
             </div>
         </div>
         <div className="spot-block-2">
@@ -110,7 +108,7 @@ return (
         <div className="line"></div>
         <div className="review">
             <div className="review-title">
-                <span className="fa fa-star checked"></span><span></span>
+                <span className="fa fa-star checked"></span><span> </span>
                 {numRevs > 0 ? (
                     <font size='5'><strong>{avgRating.toFixed(1)}</strong> . <strong>{numRevs} {numRevs === 1 ? 'review': 'reviews'}</strong></font>
                 ): (

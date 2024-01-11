@@ -1,0 +1,37 @@
+.delete-review button {
+color: white;
+background-color: #FF5A5F;
+box-shadow: 2px 2px 2px black;
+border: 2px solid black;
+cursor: pointer;
+width: 150px;
+height: auto;
+padding: 5px 20px;
+}
+.review-con{
+    padding: 0px 30px;
+    width: 100%;
+}
+.review-id{
+    margin: 10px;
+    padding: 3px;;
+}
+.rev-name{
+    margin: 10px 0px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.rev-date{
+    color: grey;
+    font-size: 14px;
+    font-weight: 100px;
+}
+.rev-content{
+    margin: 10px 0px;
+    color: black;
+}
+.no-post{
+    margin: 10px 0px;
+    color: black;
+    padding: 3px;
+}

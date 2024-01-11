@@ -27,7 +27,7 @@ export default function Stars({setRating}){
             onMouseEnter={()=> onHover(idx)}
             onMouseLeave={()=> offHover}
             >
-                &#9733
+                &#9733;
             </span>
         )
     }

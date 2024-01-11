@@ -1,0 +1,63 @@
+.profile-dropdown{
+    display: flex;
+    position: absolute;
+    padding: 10px;
+    cursor: pointer;
+    right: 50px;
+    margin-top: 4px;
+}
+.profile-dropdown.hidden{
+    display: none;
+}
+.button{
+    margin-top: 30px;
+    cursor: pointer;
+    font: 20px;
+    border-radius: 80px;
+    width: 60px;
+    height: 30px;
+    color: black;
+    background-color: white;
+}
+.log{
+    position: absolute;
+    border: 2px solid;
+    width: 120px;
+    height: 40px;
+    right: 10px;
+}
+.managelink{
+    text-decoration: none;
+    color: black;
+}
+.logoutbutton{
+    text-decoration: none;
+    margin-top: 5px;
+    text-align: center;
+    color: white;
+}
+.userlogin{
+    padding: 8px;
+    border: 2px solid;
+    text-align: center;
+}
+.userlogin>div{
+    font-size: 13px;
+}
+.userlogin>button{
+    font-size: 15px;
+    border-radius: 80px;
+}
+.logoutbutton button {
+    border-radius: 80px;
+    width: 80%;
+    height: 25px;
+    background-color: darkgray;
+    font-size: 12px;
+}
+.line{
+    height: 2px;
+    background-color: black;
+    width: 100%;
+    margin: 2px 0px;
+}

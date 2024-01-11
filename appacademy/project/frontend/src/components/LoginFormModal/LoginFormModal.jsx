@@ -10,7 +10,7 @@ function LoginFormModal() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
-
+//handles submission of login
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors({});
@@ -23,7 +23,7 @@ function LoginFormModal() {
         }
       });
   };
-
+//returns the login form component 
   return (
     <>
       <h1>Log In</h1>

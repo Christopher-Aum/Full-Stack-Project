@@ -30,9 +30,7 @@ export default function ManageSpots(){
             <DeleteSpot
             onConfirm={()=> spotDelete(spotId)}
             onCancel={closeModal}
-            />
-        )
-    }
+            />)}
     if(!userSpots){
         return null;
     }
@@ -43,7 +41,6 @@ export default function ManageSpots(){
             {userId && <button><NavLink to='/create-spot'>Create A New Spot</NavLink></button>}
             <div>
                 {userId && Object.values(userSpots).length > 0 && (
-
                 Object.values(userSpots).map(spot => {
                     <div>
                         <Link to={`/spots/${spot.id}`} key={spot.id}>
@@ -61,8 +58,7 @@ export default function ManageSpots(){
                             <button><NavLink to={`/update-spot/${spot.id}`}>Update</NavLink></button>
                             <button onClick={()=> deleteForm(spot.id)}>Delete</button>
                              </div>
-                    </div>
-                }))}
+                    </div>}))}
             </div>
         </div>
     )

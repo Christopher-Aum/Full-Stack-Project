@@ -10,64 +10,33 @@ function Navigation({ isLoaded }){
 
 //returns the navigation component and its components
   return (
+    <div>
     <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-      </li>
-      {isLoaded && (
-        <li>
-            <ProfileButton user={sessionUser}/>
-        </li>
-      )}
+      <div>
+        <NavLink to="/">
+          <div className='logo'>
+            <img src='https://media.designrush.com/inspiration_images/135187/conversions/_1511452487_364_Airbnb-mobile.jpg' alt='airbnb logo' />
+          </div>
+        </NavLink>
+      </div>
+      <div className='right-nav'>
+        {sessionUser && (
+          <div>
+            <button className='button1'><NavLink to="/create-spot" className='create-new-spot-link'>Create a New Spot</NavLink></button>
+          </div>
+        )}
+
+        {isLoaded && (
+          <div>
+            <ProfileButton user={sessionUser} />
+          </div>
+        )}
+      </div>
     </ul>
+    <div className='line2'></div>
+    </div>
+
   );
 }
 
 export default Navigation;
-
-// import { NavLink } from "react-router-dom";
-// import { useSelector, useDispatch } from "react-redux";
-// import ProfileButton from './ProfileButton'
-// import * as sessionActions from '../../store/session'
-
-// function Navigation({isLoaded}){
-//     const sessionUser = useSelector(state => state.session.user)
-//     const dispatch = useDispatch()
-
-//     const logout = (e) => {
-//         e.preventDefault()
-//         dispatch(sessionActions.logout())
-//     }
-//     const sessionLinks = sessionUser ? (
-//         <>
-//         <li>
-//             <ProfileButton user={sessionUser}/>
-//         </li>
-//         <li>
-//             <button onClick={logout}>Log Out</button>
-//         </li>
-//         </>
-//     ): (
-//         <>
-//         <li>
-//             <NavLink to="/login">Log In</NavLink>
-//         </li>
-//         <li>
-//             <NavLink to='/signup'>Sign Up</NavLink>
-//         </li>
-//         </>
-//     )
-//     return (
-//         <ul>
-//             <li>
-//                 <NavLink to='/'>Home</NavLink>
-//             </li>
-//             {isLoaded && sessionLinks}
-//         </ul>
-//     )
-// }
-
-// export default Navigation
-/*
-the only time to
-*/

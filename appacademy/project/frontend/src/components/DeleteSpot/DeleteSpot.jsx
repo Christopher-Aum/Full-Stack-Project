@@ -6,9 +6,9 @@ export default function DeleteSpot({onConfirm, onCancel}){
             <div className='delete-spot-title'>Confirm Deletion</div>
             <div className='delete-spot-content'>Do you want to remove this spot from your listings?</div>
             <br></br>
-            <div className='delete-spot-confirm' onClick={onConfirm}>Yes (Delete Spot)</div>
+            <div className='confirm' onClick={onConfirm}>Yes (Delete Spot)</div>
             <br></br>
-            <div className='delete-spot-deny' onClick={onCancel}>No (Keep Spot)</div>
+            <div className='deny' onClick={onCancel}>No (Keep Spot)</div>
         </div>
     )
 }

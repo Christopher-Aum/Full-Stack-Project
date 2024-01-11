@@ -42,3 +42,21 @@ font-weight: bold;
     padding: 10px 20px;
     width: 90%;
 }
+@media(min-width: 800px){
+    .spots-container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .wrap{
+        padding: 60px 100px;
+    }
+}
+@media(max-width: 800px){
+    .spots-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(max-width: 500px){
+    .spots-container{
+        grid-template-columns: 1fr;
+    }
+}

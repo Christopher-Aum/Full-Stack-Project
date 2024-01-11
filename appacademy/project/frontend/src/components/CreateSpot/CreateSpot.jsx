@@ -52,7 +52,7 @@ export default function CreateSpot({ mode }){
                     value = parseFloat(value) || ''}
                 setData({...data, [name]: value})}
             setErrors({...errors, [name]: ''})}
-                    //front-end validation of inputs
+        //front-end validation of inputs
         const validate = () => {
             const newErrors = {}
             const imageTypes = ['png', 'jpg', 'jpeg']
@@ -98,105 +98,104 @@ export default function CreateSpot({ mode }){
                     setErrors({Form: 'An unexpected error occurred, please submit again.'})}}catch(error){
                 console.error("Error submission:", error)
                 setErrors({Form: 'An unexpected error occurred, please try again.'})}}
-
-            const errorMsg = ({error}) => (
-                <div>{errors[error]}</div>
+            //handles error messages for all fields
+            const ErrorMsg = ({field}) => (
+                <div className="errors">{errors[field]}</div>
             )
             //returns the createspot form, and its components
             return (
-                <div>
+                <div className="create-form">
                     <form onSubmit={submit} className={isUpdate ? 'update-form' : 'new-form'}>
-                        <h1>{mode === 'create' ? 'Create a new spot': 'Update your spot'}</h1>
-                        <section>
+                        <h1 className="mode">{mode === 'create' ? 'Create a new spot': 'Update your spot'}</h1>
+                        <section className="section">
                             <h2>Where is your place located?</h2>
                             <p>Guests will only receive the address once they booked a reservation.</p>
-                            <div>
-                                <div>
-                                    <span>Country</span>
-                                    <span><errorMsg error='country'/></span>
+                            <div className="sec1">
+                                <div className="showerror">
+                                    <span className="title">Country</span>
+                                    <span className="error"><ErrorMsg field='country'/></span>
                                 </div>
                                 <input type="text" name="country" placeholder="Country" value={data.country} onChange={change}/>
-
-                                <div>
-                                    <div>Street Address</div>
-                                    <div><errorMsg error='address'/></div>
+                                <div className="showerror">
+                                    <div className="title">Street Address</div>
+                                    <div className="error"><ErrorMsg field='address'/></div>
                                 </div>
                                 <input type='text'name="address"placeholder="Address"value={data.address}onChange={change}/>
-                                <div>
+                                <div className="dual-input">
                                     <span>
-                                        <div>
-                                            <div>City</div>
-                                            <div><errorMsg error='city'/></div>
+                                        <div className="showerror">
+                                            <div className="title">City</div>
+                                            <div className="error"><ErrorMsg field='city'/></div>
                                         </div>
                                         <input type="text" name="city" placeholder="City" value={data.city} onChange={change}/>
                                         <span> ,</span>
                                     </span>
                                     <span>
-                                        <div>
-                                            <div>State</div>
-                                            <div><errorMsg error='state'/></div>
+                                        <div className="showerror">
+                                            <div className="title">State</div>
+                                            <div className="error"><ErrorMsg field='state'/></div>
                                         </div>
                                         <input type="text" name="state" placeholder="State" value={data.state} onChange={change}/>
                                     </span>
                                 </div>
-                                <div>
+                                <div className="lat-lng">
                                     <span>
-                                        <div>
-                                            <div>Latitude</div>
-                                            <div><errorMsg error='lat'/></div>
+                                        <div className="showerror">
+                                            <div className="title">Latitude</div>
+                                            <div className="error"><ErrorMsg field='lat'/></div>
                                         </div>
                                         <input type="text" name="lat" placeholder="Latitude" value={data.lat} onChange={change}/>
                                         <span> ,</span>
                                     </span>
                                     <span>
-                                        <div>
-                                        <div>Longitude</div>
-                                        <div>< errorMsg error='lng'/></div>
+                                        <div className="showerror">
+                                        <div className="title">Longitude</div>
+                                        <div className="error">< ErrorMsg field='lng'/></div>
                                         </div>
                                         <input type="text" name="lng" placeholder="Longitude" value={data.lng} onChange={change}/>
                                     </span>
                                 </div>
                             </div>
                         </section>
-                        <div></div>
-                        <section>
+                        <div className="line"></div>
+                        <section className="section">
                             <h2>Describe Your Spot!</h2>
                             <p>Mention the best features of your spot to future guests, any special features or amenities such as nearby locations, wi-fi, or parking, for example.</p>
                             <textarea name="description" placeholder="Please describe your spot in at least 30 characters" value={data.description} onChange={change}></textarea>
-                            <div>< errorMsg error='description'/></div>
+                            <div className="error">< ErrorMsg field='description'/></div>
                         </section>
-                        <div></div>
-                        <section>
+                        <div className="line"></div>
+                        <section className="section">
                             <h2>What is the title for your spot?</h2>
                             <p>Let any future guests know about your spot with a title that showcases something special about your spot!</p>
                             <input type="text" name="name" placeholder="Enter your spot's title!" value={data.name} onChange={change}/>
-                            <div><errorMsg error='name' /></div>
+                            <div className="error"><ErrorMsg field='name' /></div>
                         </section>
-                        <div></div>
-                        <section>
+                        <div className="line"></div>
+                        <section className="section">
                             <h2>What is the price for your spot?</h2>
                             <p>Competitive pricing will ensure more future guests!</p>
-                            <div>
+                            <div className="price-wrap">
                                 <span>$ <input type="text" name="price" placeholder="(USD) Price per night" value={data.price} onChange={change}/></span>
                             </div>
-                            <div>< errorMsg error='price'/></div>
+                            <div className="error">< ErrorMsg field='price'/></div>
                         </section>
                         {mode === 'create' && (
-                            <section>
-                                <div></div>
+                            <section className="section">
+                                <div className="line"></div>
                                 <h2>Provide photos for your spot</h2>
                                 <p>Submit a link to at least one photo for your spot.</p>
-                                <div>
+                                <div className="url">
                                     <input type="text" name="previewImage" placeholder="Preview Image URL" value={data.previewImage} onChange={change}/>
-                                    <div>< errorMsg error='previewImage'/></div>
+                                    <div className="error">< ErrorMsg field='previewImage'/></div>
                                     <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/>
                                     <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/>
                                     <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/>
                                     <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/>
                                 </div>
-                                <div></div>
+                                <div className="line"></div>
                             </section>)}
-                        <div>
+                        <div className="create-button">
                             <button>{isUpdate ? "Update Your Spot" : "Create Spot"}</button>
                         </div>
                     </form>
