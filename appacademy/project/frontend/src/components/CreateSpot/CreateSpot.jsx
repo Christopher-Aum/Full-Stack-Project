@@ -70,7 +70,7 @@ export default function CreateSpot({ mode }){
             if(!data.price){newErrors.price = 'Price is required'}
             if(!data.previewImage){newErrors.previewImage = 'Preview image is required'} else if (!imageTypes.includes(data.previewImage.split('.').pop().toLowerCase())){
                 newErrors.previewImage = 'Preview image needs to be in .png, .jpg, or .jpeg format'}
-            data.urls.forEach((urls, idx)=> {
+            data.urls.forEach((urls, idx) => {
                 if(!imageTypes.includes(urls.split('.').pop().toLowerCase())){
                     newErrors[`url${idx}`] = 'Image needs to be in .png, .jpg, or .jpeg format'}})
             setErrors(newErrors)
@@ -89,8 +89,7 @@ export default function CreateSpot({ mode }){
                         images.push(dispatch(uploadImg(res.id, {url: data.previewImage, preview:true})))
                         data.urls.forEach(image => {
                             images.push(dispatch(uploadImg(res.id, {url:image, preview:false})))
-                        })
-                    }
+                        })}
                 } else if (mode === 'update'){
                     res = await dispatch(updateSpot(spotId, data))}
                 await Promise.all(images)
@@ -196,7 +195,7 @@ export default function CreateSpot({ mode }){
                                 <div className="line"></div>
                             </section>)}
                         <div className="create-button">
-                            <button>{isUpdate ? "Update Your Spot" : "Create Spot"}</button>
+                            <button style={{backgroundColor: '#FF5A5F'}}>{isUpdate ? "Update Your Spot" : "Create Spot"}</button>
                         </div>
                     </form>
                 </div>

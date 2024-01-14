@@ -1,0 +1,65 @@
+.wrap{
+    display: flex;
+    justify-content: space-between;
+    margin: 7px;
+}
+.button-link{
+    text-decoration: none;
+    color: white;
+}
+.buttons button{
+    background-color: #FF5A5F;
+    box-shadow: 2px 2px 2px black;
+    margin-right: 10px;
+    margin-top: 10px;
+    color: white;
+}
+.title, .create-button{
+    margin-left: 50px;
+}
+.create-button{
+    background-color: #FF5A5F;
+    box-shadow: 2px 2px 2px black;
+    width: 20%;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* justify-self: start; */
+    /* align-self: center; */
+    /* margin-left: 300px; */
+}
+.create-button button{
+    border: 2px solid #FF5A5F
+}
+@media (min-width: 800px){
+    .manage {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin: 40px;
+    }
+}
+@media (max-width: 800px){
+    .manage{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(max-width: 500px){
+    .manage{
+        grid-template-columns: 1fr;
+    }
+}
+.spot-title img{
+    width: 350px;
+    height: 280px;
+    column-gap: 5px;
+    padding: 10px;
+    border-radius: 40px;
+}
+.price{
+    margin: 7px;
+}
+.spot-title{
+    margin-bottom: 20px;
+}
+.delete-button{
+    cursor: pointer;
+}

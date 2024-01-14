@@ -1,0 +1,54 @@
+.log-title{
+    font-size: 34px;
+    color: black;
+    text-align: center;
+    font-family: serif;
+}
+.login-modal{
+    padding: 10px;
+}
+.errors{
+    color:red;
+    justify-content: center;
+    text-align: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    text-align: center;
+}
+label{
+    text-align: center;
+    padding: 5px;
+}
+.login button{
+    display: block;
+    border: 2px solid black;
+    width: 80%;
+    height: 40px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #FF5A5F;
+    color: white;
+    box-shadow: 2px 3px 3px black;
+    cursor: pointer;
+    font-size: 12px;
+}
+.login{
+    padding: 10px 0px
+}
+.demolink{
+    font-size: 15px;
+    color:rgb(21, 28, 9)
+}
+input[type='text']{
+    border: 2px solid black;
+    width: 80%;
+    height: 20px;
+}
+input[type='password']{
+    border: 2px solid black;
+    width: 80%;
+    height: 20px;
+}

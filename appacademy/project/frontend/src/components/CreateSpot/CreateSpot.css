@@ -43,7 +43,7 @@ h1{
     color: red;
 }
 .line{
-    height: 2px;
+    height: 1px;
     background-color: black;
     width: 82%;
     margin: 20px 0px;
@@ -53,11 +53,21 @@ input[type='text']{
     width: 80%;
     height: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    color: #FF5A5F;
+}
+input::placeholder{
+    color: #FF5A5F
 }
 textarea{
     border: 2px solid black;
     width: 80%;
     height: 90px;
+    background-color: white;
+    color: #FF5A5F;
+}
+textarea::placeholder{
+    color: #FF5A5F
 }
 div, p{
     font-size: 15px;

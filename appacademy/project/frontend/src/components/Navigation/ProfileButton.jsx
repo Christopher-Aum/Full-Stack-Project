@@ -11,7 +11,7 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
-
+//handles toggling the menu
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
     setShowMenu(!showMenu);
@@ -30,9 +30,9 @@ function ProfileButton({ user }) {
 
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
-
+//handles closing menu
   const closeMenu = () => setShowMenu(false);
-
+//handles logging out of the website
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
@@ -40,7 +40,7 @@ function ProfileButton({ user }) {
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
-
+//returns the profile buttons components and its components
   return (
     <div className="profile-button-container">
       <button onClick={toggleMenu} className='button'>

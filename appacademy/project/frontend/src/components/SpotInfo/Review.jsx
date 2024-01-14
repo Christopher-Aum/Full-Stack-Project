@@ -24,7 +24,7 @@ export default function Reviews({reviews}){
         )
     }
 
-    const sorted = reviews.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt))
+    const sorted = reviews?.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt))
 //returns the review component and its components
     return (
         <div className="review-con">
@@ -44,7 +44,7 @@ export default function Reviews({reviews}){
                             <div className="rev-content">{review.review}</div>
                         </div>
                         { currentUser && review.User?.id === currentUser.id && (
-                        <div className="delete-review">
+                        <div className="delete-review-spot">
                             <button onClick={()=> openDeleteForm(review)}>Delete</button>
                         </div>
                         )}

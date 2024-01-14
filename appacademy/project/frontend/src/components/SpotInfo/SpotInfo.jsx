@@ -18,7 +18,8 @@ const currentUser = useSelector(state => state.session.user)
 const isLogged = Boolean(currentUser)
 const isOwner = currentUser && currentUser.id == spotInfo?.Owner?.id
 const [hasPosted, setHasPosted] = useState(false)
-
+console.log(spotId)
+console.log(currentUser)
 useEffect(()=> {
     dispatch(getSpotInfo(spotId))
 
@@ -59,10 +60,11 @@ const openReview = () => {
     setModalContent(
         <ReviewForm
         spotId={spotId}
-        onReviewSubmit={newReview}
+        submit={newReview}
         />
     )
 }
+console.log(numRevs)
 
 if(!spotInfo) return null
 //returns the spotinfo component
@@ -92,11 +94,11 @@ return (
             </div>
             <div className="booking-wrap">
                 <div className="booking">
-                    <div><strong>${spotInfo.price}</strong> / night</div>
+                    <div><strong>${spotInfo.price}</strong> per night</div>
                     <div className="rating">
                         <span className="fa fa-star checked"></span>
                         {numRevs > 0? (
-                            <div>{avgRating.toFixed(1)} . {numReviews} {numReviews === 1 ? "review" : "reviews"}</div>
+                            <div>{avgRating.toFixed(1)} {numReviews} {numReviews == 1 ? "review" : "reviews"}</div>
                         ): (
                             <span>New</span>
                         )}
@@ -105,7 +107,7 @@ return (
                 <button onClick={()=> alert('Upcoming Feature')}>Reserve</button>
             </div>
         </div>
-        <div className="line"></div>
+        <div className="spot-line"></div>
         <div className="review">
             <div className="review-title">
                 <span className="fa fa-star checked"></span><span> </span>

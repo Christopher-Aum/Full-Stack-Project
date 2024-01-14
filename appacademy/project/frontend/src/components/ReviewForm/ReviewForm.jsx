@@ -26,7 +26,7 @@ export default function ReviewForm ({ spotId, submit}){
             const res = await dispatch(postReview(reviewContent))
             if(!res.error){
                 submit(res)
-                closeModal
+                closeModal();
                 setRating(0)
                 setComment('')
             } else if (res.status === 500){

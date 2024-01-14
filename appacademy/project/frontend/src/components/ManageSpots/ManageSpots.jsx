@@ -11,6 +11,8 @@ export default function ManageSpots(){
     const {setModalContent, closeModal} = useModal()
     const userId = useSelector(state => state.session.user.id)
     const userSpots = useSelector(state => state.spots)
+    console.log(userId)
+    console.log(userSpots)
     useEffect(()=> {
         dispatch(currentUserSpots())
     },[dispatch, userId])
@@ -36,29 +38,29 @@ export default function ManageSpots(){
     }
 //returns the manage spot component
     return (
-        <div>
-            <h1>Manage Your Spots!</h1>
-            {userId && <button><NavLink to='/create-spot'>Create A New Spot</NavLink></button>}
-            <div>
+        <div className="container">
+            <h1 className="title">Manage Your Spots!</h1>
+            {userId && <button className="create-button"><NavLink to='/create-spot' className='button-link'>Create A New Spot</NavLink></button>}
+            <div className="manage">
                 {userId && Object.values(userSpots).length > 0 && (
-                Object.values(userSpots).map(spot => {
-                    <div>
-                        <Link to={`/spots/${spot.id}`} key={spot.id}>
+                Object.values(userSpots).map(spot => (
+                    <div key={spot.id} className="spot-title">
+                        <Link to={`/spots/${spot.id}`} key={spot.id} className="spot-title-link">
                             <img src={spot.previewImage} alt={spot.name}/>
-                            <div>
+                            <div className="wrap">
                                 <span>{spot.city}, {spot.state}</span>
                                 <div>
                                     <span className="fa fa-star checked"></span>
                                     <span>{spot.avgRating ? spot.avgRating : 'New'}</span>
                                 </div>
                             </div>
-                            <div><span>$</span><span>{spot.price}</span> per night</div>
+                            <div className="price"><span className="bold">$</span><span className="bold">{spot.price}</span> per night</div>
                         </Link>
-                        <div>
-                            <button><NavLink to={`/update-spot/${spot.id}`}>Update</NavLink></button>
-                            <button onClick={()=> deleteForm(spot.id)}>Delete</button>
+                        <div className="buttons">
+                            <button><NavLink to={`/update-spot/${spot.id}`} className='button-link'>Update</NavLink></button>
+                            <button className="delete-button" onClick={()=> deleteForm(spot.id)}>Delete</button>
                              </div>
-                    </div>}))}
+                    </div>)))}
             </div>
         </div>
     )

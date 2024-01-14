@@ -1,5 +1,5 @@
 import { useModal } from '../../context/Modal';
-
+//handles the pieces of the menu item
 function OpenModalMenuItem({
   modalComponent, // component to render inside the modal
   itemText, // text of the menu item that opens the modal
@@ -7,13 +7,13 @@ function OpenModalMenuItem({
   onModalClose // optional: callback function that will be called once the modal is closed
 }) {
   const { setModalContent, setOnModalClose } = useModal();
-
+//handles the clicking function
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
     setModalContent(modalComponent);
     if (typeof onItemClick === "function") onItemClick();
   };
-
+//returns the openmodalmenuitem component and its components
   return (
     <li onClick={onClick}>{itemText}</li>
   );

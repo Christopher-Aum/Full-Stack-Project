@@ -1,0 +1,54 @@
+.log-title{
+    font-size: 34px;
+    color: black;
+    text-align: center;
+    font-family: serif;
+}
+.logout-modal{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    padding: 5px;
+    text-align: center;
+}
+.signup button{
+    display: block;
+    border: 3px solid black;
+    width: 80%;
+    height: 40px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #FF5A5F;
+    color: white;
+    box-shadow: 2px 3px 3px black;
+    cursor: pointer;
+}
+.signup{
+    padding: 10px 0px;
+}
+input[type='text']{
+    border: 2px solid black;
+    width: 80%;
+    height: 20px;
+}
+input[type="password"]{
+    border: 2px solid black;
+    width: 80%;
+    height: 20px;
+}
+.errors {
+    color: red;
+    justify-content: center;
+    text-align: center;
+}
+.content {
+    text-align: center;
+}

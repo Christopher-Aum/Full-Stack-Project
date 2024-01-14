@@ -9,8 +9,17 @@ ul {
 
 }
 .logo> img{
-    width: 200px;
-    height: 100px;
+    width: 40px;
+    height: 40px;
+}
+
+.logo > span{
+    color: #FF5A5F;
+    text-decoration: none;
+    padding-left: 10px;
+    font-size: 50px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
 .right-nav{
     display: flex;
