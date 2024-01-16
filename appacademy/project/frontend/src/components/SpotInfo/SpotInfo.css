@@ -7,7 +7,7 @@
     justify-content: flex-start;
     align-items: flex-start;
 }
-@media (mid-width: 800px){
+@media (min-width: 800px){
     .images {
         display: flex;
         gap: 10px;
@@ -52,7 +52,7 @@
     }
     .other-images {
         display: grid;
-        width: 50%;
+        width: 100%;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         gap: 10px;
@@ -100,15 +100,15 @@
     margin: auto;
 }
 
-.reviewtitle {
+.review-title {
     padding: 0px 30px;
     width: 100%;
 }
-.reviewpost {
+.review-post {
     padding: 20px 30px;
     width: 40%;
 }
-.reviewpost button {
+.review-post button {
     background-color: #FF5a5F;
     color: white;
     box-shadow: 2px 2px 2px black;

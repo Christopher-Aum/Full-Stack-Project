@@ -21,9 +21,9 @@
     background-color: #FF5A5F;
     box-shadow: 2px 2px 2px black;
     width: 20%;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* justify-self: start; */
+    display: flex;
+    justify-content: center;
+
     /* align-self: center; */
     /* margin-left: 300px; */
 }
@@ -62,4 +62,10 @@
 }
 .delete-button{
     cursor: pointer;
+}
+.container {
+    display: flex;
+    /* justify-self: center; */
+    align-items: center;
+    flex-direction: column;
 }

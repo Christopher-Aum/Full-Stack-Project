@@ -32,7 +32,7 @@ export default function Spot({spot}){
                 </span>
             </div>
             <div className="price-con">
-                <span className="money">$</span><span className="price">{spot.price}</span>per night
+                <span className="money"></span><span className="price">${spot.price}</span>per night
             </div>
             </div>
         </div>

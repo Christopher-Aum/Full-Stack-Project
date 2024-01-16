@@ -2,7 +2,7 @@
     font-size: 34px;
     color: black;
     text-align: center;
-    font-family: serif;
+    font-family: sans-serif;
 }
 .logout-modal{
     padding: 10px;
@@ -43,6 +43,7 @@ input[type="password"]{
     border: 2px solid black;
     width: 80%;
     height: 20px;
+    background-color: white;
 }
 .errors {
     color: red;

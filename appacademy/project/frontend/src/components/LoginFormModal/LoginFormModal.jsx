@@ -31,14 +31,6 @@ function LoginFormModal() {
 
   };
 
-  const handleDemoLogin = (e) => {
-    e.preventDefault();
-    setErrors({});
-    return dispatch(sessionActions.login({ credential: 'FakeUser3', password: 'password4' }))
-      .then(closeModal)
-      .catch(handleError)
-  };
-
   return (
     <div className='login-modal'>
       <div className='log-title'>Log In</div>
@@ -69,7 +61,7 @@ function LoginFormModal() {
           <button type="submit" disabled={credential.length < 4 || password.length < 6}>Log In</button>
 
         </div>
-        <a href='#' onClick={handleDemoLogin} className='demolink'>Demo User</a>
+        {/* <a href='#' onClick={handleDemoLogin} className='demolink'>Demo User</a> */}
       </form>
     </div>
   );

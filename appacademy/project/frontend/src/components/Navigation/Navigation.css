@@ -30,9 +30,18 @@ ul {
     font-size: 15px;
 }
 .button1{
-    margin-top: 30px;
+    margin-top: 15px;
     width: 200px;
     height: 30px;
     background-color: white;
     border: none;
+    margin-bottom: 10px;
+}
+.landrnr{
+   text-decoration: none !important;
+   border-bottom: none !important;
+
+}
+.navlink-logo{
+    text-decoration: none;
 }

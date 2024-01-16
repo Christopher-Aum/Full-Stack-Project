@@ -21,7 +21,12 @@ export default function CreateSpot({ mode }){
         description:'',
         price:'',
         previewImage:'',
-        urls:[]})
+        // urls:[],
+        // url1:'',
+        // url2:'',
+        // url3:'',
+        // url4:'',
+    })
 
         useEffect(() => {
             if(isUpdate && spotId){
@@ -44,9 +49,10 @@ export default function CreateSpot({ mode }){
                         }, [dispatch, isUpdate, spotId])
         //handles any change with inputs
         const change = (e) => {
-            let{name, value} = e.target;
-            if(name==='previewImage' || name.startsWith('url')){
-                setData({...data, [name]: value})
+            let { name, value } = e.target;
+            // if(name==='previewImage' || name.startsWith('url'))
+            if(name==='previewImage')  {
+                setData({...data, [name]: value });
             } else {
                 if (name==='lat' || name === 'lng'){
                     value = parseFloat(value) || ''}
@@ -70,9 +76,9 @@ export default function CreateSpot({ mode }){
             if(!data.price){newErrors.price = 'Price is required'}
             if(!data.previewImage){newErrors.previewImage = 'Preview image is required'} else if (!imageTypes.includes(data.previewImage.split('.').pop().toLowerCase())){
                 newErrors.previewImage = 'Preview image needs to be in .png, .jpg, or .jpeg format'}
-            data.urls.forEach((urls, idx) => {
-                if(!imageTypes.includes(urls.split('.').pop().toLowerCase())){
-                    newErrors[`url${idx}`] = 'Image needs to be in .png, .jpg, or .jpeg format'}})
+            // data.urls.forEach((urls, idx) => {
+            //     if(!imageTypes.includes(urls.split('.').pop().toLowerCase())){
+            //         newErrors[`url${idx}`] = 'Image needs to be in .png, .jpg, or .jpeg format'}})
             setErrors(newErrors)
             return Object.keys(newErrors).length === 0;}
                     //handles submission of the create spot form
@@ -87,9 +93,10 @@ export default function CreateSpot({ mode }){
                     res = await dispatch(createSpot(data))
                     if (res && res.id && data.previewImage){
                         images.push(dispatch(uploadImg(res.id, {url: data.previewImage, preview:true})))
-                        data.urls.forEach(image => {
-                            images.push(dispatch(uploadImg(res.id, {url:image, preview:false})))
-                        })}
+                        // data.urls.forEach(image => {
+                        //     images.push(dispatch(uploadImg(res.id, {url:image, preview:false})))
+                        // })
+                    }
                 } else if (mode === 'update'){
                     res = await dispatch(updateSpot(spotId, data))}
                 await Promise.all(images)
@@ -184,13 +191,13 @@ export default function CreateSpot({ mode }){
                                 <div className="line"></div>
                                 <h2>Provide photos for your spot</h2>
                                 <p>Submit a link to at least one photo for your spot.</p>
-                                <div className="url">
+                                <div className="image-inputs">
                                     <input type="text" name="previewImage" placeholder="Preview Image URL" value={data.previewImage} onChange={change}/>
                                     <div className="error">< ErrorMsg field='previewImage'/></div>
+                                    {/* <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/>
                                     <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/>
                                     <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/>
-                                    <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/>
-                                    <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/>
+                                    <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/> */}
                                 </div>
                                 <div className="line"></div>
                             </section>)}

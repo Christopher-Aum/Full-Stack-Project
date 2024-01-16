@@ -18,8 +18,7 @@ const currentUser = useSelector(state => state.session.user)
 const isLogged = Boolean(currentUser)
 const isOwner = currentUser && currentUser.id == spotInfo?.Owner?.id
 const [hasPosted, setHasPosted] = useState(false)
-console.log(spotId)
-console.log(currentUser)
+console.log(spotInfo)
 useEffect(()=> {
     dispatch(getSpotInfo(spotId))
 
@@ -64,7 +63,7 @@ const openReview = () => {
         />
     )
 }
-console.log(numRevs)
+
 
 if(!spotInfo) return null
 //returns the spotinfo component
@@ -80,11 +79,11 @@ return (
                 <img src={spotInfo?.SpotImages?.[0]?.url} alt={spotInfo.description}/>
             </div>
             <div className="other-images">
-                {spotInfo?.SpotImages?.slice(1).map((image)=> {
+                {spotInfo?.SpotImages?.slice(1).map((image)=> (
                 <div key={image.id} className="other-image">
                     <img src={image?.url} alt={spotInfo.description}/>
                 </div>
-                })}
+                ))}
             </div>
         </div>
         <div className="spot-block-2">

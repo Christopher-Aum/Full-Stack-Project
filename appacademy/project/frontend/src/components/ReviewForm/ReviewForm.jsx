@@ -17,7 +17,7 @@ export default function ReviewForm ({ spotId, submit}){
         setComment('')
         setErrors({})
     }, [spotId])
-//handles the submission of the form
+//handles the submission of the form and its components
     const submitForm = async (e) => {
         e.preventDefault()
         setErrors({})
