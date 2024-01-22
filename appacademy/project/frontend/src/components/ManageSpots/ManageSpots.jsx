@@ -40,7 +40,7 @@ export default function ManageSpots(){
     return (
         <div className="container">
             <h1 className="title">Manage Your Spots!</h1>
-            {userId && <button className="create-button"><NavLink to='/create-spot' className='button-link'>Create A New Spot</NavLink></button>}
+            {userId && <button className="manage-create-button"><NavLink to='/create-spot' className='button-link'>Create A New Spot</NavLink></button>}
             <div className="manage">
                 {userId && Object.values(userSpots).length > 0 && (
                 Object.values(userSpots).map(spot => (

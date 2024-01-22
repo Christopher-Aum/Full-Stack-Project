@@ -12,16 +12,14 @@ export default function Reviews({reviews}){
     const confirmDeletion = async (reviewId, spotId)=> {
         await dispatch(deleteReview(reviewId))
         closeModal()
-        await dispatch(getReviews(spotId))
-    }
+        await dispatch(getReviews(spotId))}
 //function that calls in the delete form for a review
     const openDeleteForm = (review) => {
         setModalContent(
             <DeleteReview
             onConfirm={()=>confirmDeletion(review.id,review.spotId)}
             onCancel={closeModal}
-            />
-        )
+            />)
     }
 
     const sorted = reviews?.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt))
@@ -34,8 +32,7 @@ export default function Reviews({reviews}){
                 let date = new Date(time)
                 let options = {
                     month: 'long',
-                    year: 'numeric'
-                }
+                    year: 'numeric'}
                 return (
                     <div key={review.id} className="review-id">
                         <div className="review-details">

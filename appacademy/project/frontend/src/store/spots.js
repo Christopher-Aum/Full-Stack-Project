@@ -103,7 +103,7 @@ export const spotReducer = (state = {}, action)=> {
         case CREATE_SPOT:
             return {...state, [action.spot.id]: action.spot}
         case ADD_IMAGE:
-            return {...state, [action.spotId]: {...state[action.spotId], SpotImages: [...state[action.spotId].SpotImages, action.image]}}
+            return {...state, [action.spotId]: {...state[action.spotId], SpotImages: [state[action.spotId].SpotImages, action.image]}}
         case GET_USER_SPOTS:
             return action.spots.reduce((spots, spot)=> { spots[spot.id]= spot; return spots}, {})
         case UPDATE_SPOT:

@@ -88,7 +88,7 @@ return (
         </div>
         <div className="spot-block-2">
             <div className="panel">
-                <h2>Hosted by {spotInfo.Owner.firstName} {spotInfo.Owner.lastName}</h2>
+                <h2>Hosted by: {spotInfo.Owner.firstName} {spotInfo.Owner.lastName}</h2>
                 <div className="description">{spotInfo.description}</div>
             </div>
             <div className="booking-wrap">
@@ -96,9 +96,9 @@ return (
                     <div><strong>${spotInfo.price}</strong> per night</div>
                     <div className="rating">
                         <span className="fa fa-star checked"></span>
-                        {numRevs > 0? (
+                        {numRevs > 0 ? (
                             <div>{avgRating.toFixed(1)} {numReviews} {numReviews == 1 ? "review" : "reviews"}</div>
-                        ): (
+                        ) : (
                             <span>New</span>
                         )}
                     </div>

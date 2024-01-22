@@ -1,7 +1,8 @@
 .wrap{
     display: flex;
     justify-content: space-between;
-    margin: 7px;
+    gap: 10px;
+
 }
 .button-link{
     text-decoration: none;
@@ -17,7 +18,7 @@
 .title, .create-button{
     margin-left: 50px;
 }
-.create-button{
+.manage-create-button{
     background-color: #FF5A5F;
     box-shadow: 2px 2px 2px black;
     width: 20%;

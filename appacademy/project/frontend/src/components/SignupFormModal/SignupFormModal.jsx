@@ -81,7 +81,6 @@ function SignupFormPage() {
               required
             />
           </label>
-
           <label>
             <input
               type="text"
@@ -91,7 +90,6 @@ function SignupFormPage() {
               required
             />
           </label>
-
           <label>
             <input
               type="password"

@@ -22,10 +22,10 @@ export default function CreateSpot({ mode }){
         price:'',
         previewImage:'',
         // urls:[],
-        // url1:'',
-        // url2:'',
-        // url3:'',
-        // url4:'',
+        url1:'',
+        url2:'',
+        url3:'',
+        url4:''
     })
 
         useEffect(() => {
@@ -51,7 +51,7 @@ export default function CreateSpot({ mode }){
         const change = (e) => {
             let { name, value } = e.target;
             // if(name==='previewImage' || name.startsWith('url'))
-            if(name==='previewImage')  {
+            if(name==='previewImage' || name==='url1' || name==='url2' || name==='url3' || name==='url4')  {
                 setData({...data, [name]: value });
             } else {
                 if (name==='lat' || name === 'lng'){
@@ -79,6 +79,10 @@ export default function CreateSpot({ mode }){
             // data.urls.forEach((urls, idx) => {
             //     if(!imageTypes.includes(urls.split('.').pop().toLowerCase())){
             //         newErrors[`url${idx}`] = 'Image needs to be in .png, .jpg, or .jpeg format'}})
+            let otherimages = [data.url1, data.url2, data.url3, data.url4]
+                otherimages.forEach((urls, idx) => {
+                        if(!imageTypes.includes(urls.split('.').pop().toLowerCase())){
+                            newErrors[`url${idx}`] = 'Image needs to be in .png, .jpg, or .jpeg format'}})
             setErrors(newErrors)
             return Object.keys(newErrors).length === 0;}
                     //handles submission of the create spot form
@@ -96,6 +100,10 @@ export default function CreateSpot({ mode }){
                         // data.urls.forEach(image => {
                         //     images.push(dispatch(uploadImg(res.id, {url:image, preview:false})))
                         // })
+                        images.push(dispatch(uploadImg(res.id, {url: data.url1, preview:false})))
+                        images.push(dispatch(uploadImg(res.id, {url: data.url2, preview:false})))
+                        images.push(dispatch(uploadImg(res.id, {url: data.url3, preview:false})))
+                        images.push(dispatch(uploadImg(res.id, {url: data.url4, preview:false})))
                     }
                 } else if (mode === 'update'){
                     res = await dispatch(updateSpot(spotId, data))}
@@ -194,10 +202,10 @@ export default function CreateSpot({ mode }){
                                 <div className="image-inputs">
                                     <input type="text" name="previewImage" placeholder="Preview Image URL" value={data.previewImage} onChange={change}/>
                                     <div className="error">< ErrorMsg field='previewImage'/></div>
-                                    {/* <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/>
-                                    <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/>
-                                    <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/>
-                                    <input type="text" name="urls" placeholder="Image URL" value={data.urls} onChange={change}/> */}
+                                    <input type="text" name="url1" placeholder="Image URL" value={data.url1} onChange={change}/>
+                                    <input type="text" name="url2" placeholder="Image URL" value={data.url2} onChange={change}/>
+                                    <input type="text" name="url3" placeholder="Image URL" value={data.url3} onChange={change}/>
+                                    <input type="text" name="url4" placeholder="Image URL" value={data.url4} onChange={change}/>
                                 </div>
                                 <div className="line"></div>
                             </section>)}
