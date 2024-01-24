@@ -203,9 +203,13 @@ export default function CreateSpot({ mode }){
                                     <input type="text" name="previewImage" placeholder="Preview Image URL" value={data.previewImage} onChange={change}/>
                                     <div className="error">< ErrorMsg field='previewImage'/></div>
                                     <input type="text" name="url1" placeholder="Image URL" value={data.url1} onChange={change}/>
+                                    <div className="error">< ErrorMsg field='url0'/></div>
                                     <input type="text" name="url2" placeholder="Image URL" value={data.url2} onChange={change}/>
+                                    <div className="error">< ErrorMsg field='url1'/></div>
                                     <input type="text" name="url3" placeholder="Image URL" value={data.url3} onChange={change}/>
+                                    <div className="error">< ErrorMsg field='url2'/></div>
                                     <input type="text" name="url4" placeholder="Image URL" value={data.url4} onChange={change}/>
+                                    <div className="error">< ErrorMsg field='url3'/></div>
                                 </div>
                                 <div className="line"></div>
                             </section>)}

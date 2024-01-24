@@ -36,7 +36,7 @@ export default function Reviews({reviews}){
                 return (
                     <div key={review.id} className="review-id">
                         <div className="review-details">
-                            <div className="rev-name">{review.User?.firstName ? review.User.firstName : currentUser.firstName}</div>
+                            <div className="rev-name">{review.User?.firstName ? review.User.firstName : currentUser.firstName} {review.User?.lastName ? review.User.lastName : currentUser.lastName}</div>
                             <div className="rev-date">{date.toLocaleDateString(undefined, options)}</div>
                             <div className="rev-content">{review.review}</div>
                         </div>
